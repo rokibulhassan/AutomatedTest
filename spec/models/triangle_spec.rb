@@ -20,12 +20,12 @@ RSpec.describe Triangle do
     expect(triangle.type).to eq :equilateral
   end
 
-  it 'determines what type of triangle it is #equilateral' do
+  it 'determines what type of triangle it is #isosceles' do
     triangle = Triangle.new(6, 6, 7)
     expect(triangle.type).to eq :isosceles
   end
 
-  it 'determines what type of triangle it is #equilateral' do
+  it 'determines what type of triangle it is #scalene' do
     triangle = Triangle.new(6, 7, 8)
     expect(triangle.type).to eq :scalene
   end
