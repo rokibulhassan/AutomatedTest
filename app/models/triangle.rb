@@ -1,7 +1,7 @@
 class Triangle
   def initialize(a, b, c)
     @sides = [a, b, c].sort
-    guard_against_invalid_lengths
+    validate_lengths
   end
 
   def type
@@ -16,7 +16,7 @@ class Triangle
   end
 
   private
-  def guard_against_invalid_lengths
+  def validate_lengths
     if @sides.any? { |x| x <= 0 }
       raise "Sides must be greater than 0"
     end
