@@ -17,6 +17,10 @@ class Triangle
 
   private
   def validate_lengths
+    if @sides.any? { |x| x.is_a?(String) }
+      raise "Characters not allowed"
+    end
+
     if @sides.any? { |x| x <= 0 }
       raise "Sides must be greater than 0"
     end

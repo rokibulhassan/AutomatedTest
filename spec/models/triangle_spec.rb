@@ -2,6 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Triangle do
 
+  it 'should not allow character/string values' do
+    expect { Triangle.new('a', 'b', 'c') }.to raise_error("Characters not allowed")
+  end
+
+  it 'should not allow negative values' do
+    expect { Triangle.new(-1, -2, -3) }.to raise_error("Sides must be greater than 0")
+  end
+
   it 'Sides must be greater than 0' do
     expect { Triangle.new(0, 0, 0) }.to raise_error("Sides must be greater than 0")
   end
