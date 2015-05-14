@@ -1,8 +1,8 @@
 == README
 
-===<tt>git clone https://github.com/rokibulhassan/AutomatedTest.git</tt>
-===<tt>git checkout generate-seed</tt>
-===<tt>bundle install</tt>
-===<tt>rake db:create</tt>
-===<tt>rake db:migrate</tt>
-===<tt>rake db:seed</tt>
+====<tt>git clone https://github.com/rokibulhassan/AutomatedTest.git</tt>
+====<tt>git checkout generate-seed</tt>
+====<tt>bundle install</tt>
+====<tt>rake db:create</tt>
+====<tt>rake db:migrate</tt>
+====<tt>rake db:seed</tt>
