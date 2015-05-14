@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'roo'
+
+class Import
+  def self.data(sheet, klass)
+    header = sheet.row(1)
+    (2..sheet.last_row).each do |i|
+      row = Hash[[header, sheet.row(i)].transpose]
+      data_attr = row.to_hash.select { |k, v| klass.constantize.column_names.include? k }
+      object = klass.constantize.new(data_attr)
+      object.save!
+    end
+  end
+end
+
+sheets = Roo::Excelx.new("./ca_health_plan_rates.xlsx")
+
+Import.data(sheets.sheet("regions"), 'ZipCode')
+Import.data(sheets.sheet("health_plans"), 'HealthPlan')
